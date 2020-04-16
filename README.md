@@ -1,14 +1,15 @@
 
-# DynamicData.Samplz
+# ObservableComputations.Samples
 
-I have create many examples of using dynamic data but many of these are advanced. This solution will provide a series of simple getting started examples.
+This solution allows you
+1. Learn [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations) with simple samples.
+2. Compare [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations) and [DynamicData](https://github.com/reactiveui/DynamicData) in action.
 
-![screenshot](https://github.com/RolandPheasant/DynamicData.Samplz/blob/master/Images/Screenshot.gif)
+This solution is a modified version of [DynamicData.Samplz](https://github.com/RolandPheasant/DynamicData.Samplz). The modification consisted of replacing [DynamicData.Samplz](https://github.com/RolandPheasant/DynamicData.Samplz) by [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations). Root of this repository is the version of [DynamicData.Samplz](https://github.com/RolandPheasant/DynamicData.Samplz), which was the basis for the modification. Modified version is placed in *./ObservableComputations.Samples* directory.
 
-It will be driven by 'How to questions' which the community asks for. So if you ask a question which may be useful for others as well as yourself I will create an example here.
+## About comparision [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations) and [DynamicData](https://github.com/reactiveui/DynamicData) 
 
-###Some links
+The programming models [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations) and [DynamicData](https://github.com/reactiveui/DynamicData) have similar and different features. See details [here](https://github.com/IgorBuchelnikov/ObservableComputations#analogs). Therefore, the comparison is fraught with difficulties. In various samples, these difficulties are expressed to varying degrees. To a greater extent, these difficulties are expressed in "Filter An Observable" sample from [DynamicData](https://github.com/reactiveui/DynamicData) ("Add and remove items" sample from [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations)). But from the point of view of the end user, there are no differences in all the samples.
 
-- Any question or requests for examples contact me on [![https://gitter.im/RolandPheasant/DynamicData](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/RolandPheasant/DynamicData?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-- Downloading the latest release of Dynamic Data from [Dynamic Data on nuget](https://www.nuget.org/packages/DynamicData/) 
-- Advance example project [Dynamic Trader](https://github.com/RolandPheasant/Dynamic.Trader)
+
+
