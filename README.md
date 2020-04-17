@@ -5,7 +5,7 @@ This solution allows you
 1. Learn [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations) with simple samples.
 2. Compare [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations) and [DynamicData](https://github.com/reactiveui/DynamicData) in action.
 
-This solution is a modified version of [DynamicData.Samplz](https://github.com/RolandPheasant/DynamicData.Samplz). The modification consisted of replacing [DynamicData.Samplz](https://github.com/RolandPheasant/DynamicData.Samplz) by [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations). Root of this repository is the version of [DynamicData.Samplz](https://github.com/RolandPheasant/DynamicData.Samplz), which was the basis for the modification. Modified version is placed in *./ObservableComputations.Samples* directory.
+This solution is a modified version of [DynamicData.Samplz](https://github.com/RolandPheasant/DynamicData.Samplz). The modification consisted of replacing [DynamicData](https://github.com/reactiveui/DynamicData) by [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations). Root of this repository is the version of [DynamicData.Samplz](https://github.com/RolandPheasant/DynamicData.Samplz), which was the basis for the modification. Modified version is placed in *./ObservableComputations.Samples* directory.
 
 ## About comparision [ObservableComputations](https://github.com/IgorBuchelnikov/ObservableComputations) and [DynamicData](https://github.com/reactiveui/DynamicData) 
 
