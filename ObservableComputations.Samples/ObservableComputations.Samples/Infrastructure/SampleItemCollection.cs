@@ -17,7 +17,7 @@ namespace ObservableComputations.Samples.Infrastructure
                         "SelectableItemsViewModel.cs",
                         @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/blob/master/DynamicData.Samplz/Examples/SelectableItemsViewModel.cs",
                         "SelectableItemsViewModel.cs",
-                        @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/blob/master/ObservableComputations.Samples/Examples/SelectableItemsViewModel.cs"),
+                        @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/tree/master/ObservableComputations.Samples/ObservableComputations.Samples/Examples/SelectableItemsViewModel.cs"),
 
                 new SampleItem("Aggregations", new AggregationViewModel(),
                         "Aggregate over a collection which is filtered on a property",
@@ -31,14 +31,14 @@ namespace ObservableComputations.Samples.Infrastructure
                         "FilterObservableViewModel.cs",
                         @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/blob/master/DynamicData.Samplz/Examples/FilterObservableViewModel.cs",
                         "AddRemoveItemsViewModel.cs",
-                        @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/blob/master/ObservableComputations.Samples/Examples/AddRemoveItemsViewModel.cs"),
+                        @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/tree/master/ObservableComputations.Samples/ObservableComputations.Samples/Examples/AddRemoveItemsViewModel.cs"),
 
                 new SampleItem("One to many join", new  ParentChildrenViewModel(), 
                         "Managing parent's children",
                         "JoinManyViewModel.cs",
                         @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/blob/master/DynamicData.Samplz/Examples/JoinViewModel.cs",
 		                "ParentChildrenViewModel.cs",
-		                @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/blob/master/ObservableComputations.Samples/Examples/ParentChildrenViewModel.cs")
+		                @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/tree/master/ObservableComputations.Samples/ObservableComputations.Samples/Examples/ParentChildrenViewModel.cs")
 
             };
         }
