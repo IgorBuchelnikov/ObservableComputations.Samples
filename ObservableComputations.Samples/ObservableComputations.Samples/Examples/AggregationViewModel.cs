@@ -10,6 +10,8 @@ namespace ObservableComputations.Samples.Examples
         private readonly ObservableCollection<AggregationItem> _items;
         public ObservableCollection<AggregationItem> Items => _items;
 
+		private readonly  OcConsumer _consumer = new OcConsumer();
+
         private IReadScalar<int> _max;
         private IReadScalar<double> _stdDev;
         private IReadScalar<double> _avg;
@@ -25,23 +27,23 @@ namespace ObservableComputations.Samples.Examples
 
             _items = new ObservableCollection<AggregationItem>(sourceList);
 
-            _included = _items.Filtering(i => i.IncludeInTotal).Selecting(i => i.Number);
+            _included = _items.Filtering(i => i.IncludeInTotal).Selecting(i => i.Number).For(_consumer);
 			
-            _sum = _included.Summarizing();
+            _sum = _included.Summarizing().For(_consumer);
 
-            _min = _included.Minimazing();
+            _min = _included.Minimazing().For(_consumer);
 
-            _max = _included.Maximazing();
+            _max = _included.Maximazing().For(_consumer);
 
-            _max = _included.Maximazing();
+            _max = _included.Maximazing().For(_consumer);
 
-            _avg = _included.Averaging<int, double>();
+            _avg = _included.Averaging<int, double>().For(_consumer);
 
             _stdDev =  new Computing<double>(() => 
 	            Math.Sqrt(_included.Selecting(n => Math.Pow(n - _avg.Value, 2)).Summarizing().Value 
-					/ (_included.Count - 1)));
+					/ (_included.Count - 1))).For(_consumer);
 
-            _sumOfOddNumbers = _included.Filtering(i => i % 2 == 1).Summarizing();
+            _sumOfOddNumbers = _included.Filtering(i => i % 2 == 1).Summarizing().For(_consumer);
 
         }
         

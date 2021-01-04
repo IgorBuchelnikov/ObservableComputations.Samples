@@ -11,6 +11,7 @@ namespace ObservableComputations.Samples.Examples
 
 		public ObservableCollection<SimpleItemViewModel> Selected => _selected;
 		public ObservableCollection<SimpleItemViewModel> NotSelected => _notSelected;
+		private readonly  OcConsumer _consumer = new OcConsumer();
 
 		public SelectableItemsViewModel()
 		{
@@ -19,9 +20,9 @@ namespace ObservableComputations.Samples.Examples
 			var viewModels = new ObservableCollection<SimpleItemViewModel>(
 				sourceList.Select(simpleItem => new SimpleItemViewModel(simpleItem)));
 
-			_selected = viewModels.Filtering(vm => vm.IsSelected);
+			_selected = viewModels.Filtering(vm => vm.IsSelected).For(_consumer);
 
-			_notSelected = viewModels.Filtering(vm => !vm.IsSelected);      
+			_notSelected = viewModels.Filtering(vm => !vm.IsSelected).For(_consumer);      
 		}
 
 	}

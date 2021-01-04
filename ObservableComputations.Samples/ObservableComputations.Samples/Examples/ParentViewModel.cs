@@ -17,27 +17,33 @@ namespace ObservableComputations.Samples.Examples
 		public IReadScalar<string> ChildrenNames { get; }
 		public ICommand EditCommand { get; }
 
+		private readonly OcConsumer _consumer;
+
+
 		public ObservableCollection<RelationViewModel> GetRelationViewModels()
 		{
-			return _people.Selecting(p => new RelationViewModel(this, p, _relations));
+			return _people.Selecting(p => new RelationViewModel(this, p, _relations, _consumer)).For(_consumer);
 		}
         
-        public ParentViewModel(Person parent, ObservableCollection<Person> people, ObservableCollection<Relation> relations, Action<ParentViewModel> editAction)
+        public ParentViewModel(Person parent, ObservableCollection<Person> people, ObservableCollection<Relation> relations, Action<ParentViewModel> editAction, OcConsumer consumer)
         {
+			_consumer = consumer;
 	        _people = people;
 	        _relations = relations;
 
             Parent = parent;
 
-            Children = relations.Filtering(r => r.Parent == parent).Selecting(r => r.Child);
+            Children = relations.Filtering(r => r.Parent == parent).Selecting(r => r.Child).For(_consumer);
 
-            ChildrenNames = new Computing<string>(() => 
-	            Children.Count == 0 
-				 ? "<None>" 
-				 : Children
-					 .Selecting(c => c.Name)
-					 .Ordering(cn => cn)
-					 .StringsConcatenating(", ").Value);
+            ChildrenNames = 
+	            new Computing<string>(() => 
+		            Children.Count == 0 
+					 ? "<None>" 
+					 : Children
+						 .Selecting(c => c.Name)
+						 .Ordering(cn => cn)
+						 .StringsConcatenating(", ").Value)
+		        .For(_consumer);
 
             EditCommand = new Command(() => editAction(this));
         }

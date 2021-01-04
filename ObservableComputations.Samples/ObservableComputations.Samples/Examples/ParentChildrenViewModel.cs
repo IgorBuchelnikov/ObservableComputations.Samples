@@ -13,19 +13,21 @@ namespace ObservableComputations.Samples.Examples
         private readonly ObservableCollection<Person> _people = new ObservableCollection<Person>();
         private readonly ObservableCollection<Relation> _relations = new ObservableCollection<Relation>();
 
+		private readonly  OcConsumer _consumer = new OcConsumer();
+
         public ObservableCollection<ParentViewModel> Data { get; }
 
         public ParentChildrenViewModel()
         {
 	        Action<ParentViewModel> editAction = async pvm => await EditPerson(pvm);
-	        Data = _people.Selecting(p => new ParentViewModel(p, _people, _relations, editAction));
+	        Data = _people.Selecting(p => new ParentViewModel(p, _people, _relations, editAction, _consumer)).For(_consumer);
 
             LoadInitialData();
         }
 
         private async Task EditPerson(ParentViewModel parentViewModel)
         {
-            var editor = new EditRelationsViewModel(parentViewModel, _people, _relations);
+            var editor = new EditRelationsViewModel(parentViewModel, _people, _relations, _consumer);
             await DialogHost.Show(editor);
         }
 

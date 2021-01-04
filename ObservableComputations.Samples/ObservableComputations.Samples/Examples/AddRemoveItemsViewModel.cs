@@ -8,19 +8,20 @@ namespace ObservableComputations.Samples.Examples
     public class AddRemoveItemsViewModel
     {
         private readonly ObservableCollection<FootballPlayer> _availablePlayers;
-
         private readonly ObservableCollection<FootballPlayer> _myTeamPeople;
 
         public ObservableCollection<FootballPlayer> AvailablePlayers => _availablePlayers;
         public ObservableCollection<FootballPlayer> MyTeam => _myTeamPeople;
 
+		private readonly  OcConsumer _consumer = new OcConsumer();
+
         public AddRemoveItemsViewModel()
         {
             var people = CreateFootballerList().Ordering(person => person.LastModifiedDateTime);
 
-            _availablePlayers = people.Filtering(person => !person.IsIncluded);
+            _availablePlayers = people.Filtering(person => !person.IsIncluded).For(_consumer);
 
-            _myTeamPeople = people.Filtering(person => person.IsIncluded);
+            _myTeamPeople = people.Filtering(person => person.IsIncluded).For(_consumer);
         }
 
         private ObservableCollection<FootballPlayer> CreateFootballerList()

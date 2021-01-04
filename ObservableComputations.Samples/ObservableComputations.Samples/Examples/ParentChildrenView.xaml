@@ -1,85 +1,108 @@
-﻿<UserControl x:Class="ObservableComputations.Samples.Examples.ParentChildrenView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:examples="clr-namespace:ObservableComputations.Samples.Examples"
-             mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance examples:ParentChildrenViewModel}"
-             d:DesignHeight="300" d:DesignWidth="300">
+﻿<UserControl
+	x:Class="ObservableComputations.Samples.Examples.ParentChildrenView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:examples="clr-namespace:ObservableComputations.Samples.Examples"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	d:DataContext="{d:DesignInstance examples:ParentChildrenViewModel}"
+	d:DesignHeight="300"
+	d:DesignWidth="300"
+	mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <ResourceDictionary>
+	<UserControl.Resources>
+		<ResourceDictionary>
 
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListBox.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-            
-            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignFlatButton}">
-                <Setter Property="Width" Value="18" />
-                <Setter Property="Height" Value="18" />
-                <Setter Property="Padding" Value="0" />
-            </Style>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListBox.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+			</ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate DataType="{x:Type examples:EditRelationsViewModel}" x:Shared="False">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+			<Style BasedOn="{StaticResource MaterialDesignFlatButton}" TargetType="{x:Type Button}">
+				<Setter Property="Width" Value="18" />
+				<Setter Property="Height" Value="18" />
+				<Setter Property="Padding" Value="0" />
+			</Style>
 
-                    <materialDesign:ColorZone Mode="PrimaryMid">
-                        <TextBlock Margin="8" 
-                                   Style="{StaticResource MaterialDesignSubheadingTextBlock}"
-                                   Text="{Binding ParentViewModel.Parent.Name, StringFormat='Select relations for {0}'}"/>
-                    </materialDesign:ColorZone>
-                  
-                    <ListBox Grid.Row="1" ItemsSource="{Binding RelationViewModels}" Height="260" SelectionMode="Multiple">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource MaterialDesignListBoxItem}">
-                                <Setter Property="IsSelected" Value="{Binding IsSelected.Value, Mode=TwoWay}"/>
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                    </ListBox>
-                    
-                    <StackPanel Grid.Row="2" HorizontalAlignment="Right">
-                        <Button Style="{StaticResource MaterialDesignFlatButton}"
-                                Command="materialDesign:DialogHost.CloseDialogCommand"
-                                Content="I'm Done">
-                        </Button>
-                    </StackPanel>
-                </Grid>
-            </DataTemplate>
-        </ResourceDictionary>
-        
-     </UserControl.Resources>
-    
-     <Grid>
-         <materialDesign:DialogHost>
-            <DataGrid ItemsSource="{Binding Data}"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True"
-                      CanUserSortColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Width="Auto" Binding="{Binding  Parent.Name, Mode=OneTime}" />
-                    <DataGridTextColumn Header="Age" Width="Auto" Binding="{Binding Parent.Age ,Mode=OneTime}" />
-                    <DataGridTextColumn Header="#" Width="Auto" Binding="{Binding Children.Count}" />
-                    <DataGridTextColumn Header="Children" Width="150" Binding="{Binding  ChildrenNames.Value}" />
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate DataType="{x:Type examples:ParentViewModel}">
-                                <Button Command="{Binding EditCommand, Mode=OneTime}" ToolTip="Edit children">
-                                    <materialDesign:PackIcon Kind="TableEdit" Width="14" Height="14"/>
-                                </Button>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-        </materialDesign:DialogHost>
-    </Grid>
+			<DataTemplate x:Shared="False" DataType="{x:Type examples:EditRelationsViewModel}">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+
+					<materialDesign:ColorZone Mode="PrimaryMid">
+						<TextBlock
+							Margin="8"
+							Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+							Text="{Binding ParentViewModel.Parent.Name, StringFormat='Select relations for {0}'}" />
+					</materialDesign:ColorZone>
+
+					<ListBox
+						Grid.Row="1"
+						Height="260"
+						ItemsSource="{Binding RelationViewModels}"
+						SelectionMode="Multiple">
+						<ListBox.ItemContainerStyle>
+							<Style BasedOn="{StaticResource MaterialDesignListBoxItem}" TargetType="{x:Type ListBoxItem}">
+								<Setter Property="IsSelected" Value="{Binding IsSelected.Value, Mode=TwoWay}" />
+							</Style>
+						</ListBox.ItemContainerStyle>
+					</ListBox>
+
+					<StackPanel Grid.Row="2" HorizontalAlignment="Right">
+						<Button
+							Command="materialDesign:DialogHost.CloseDialogCommand"
+							Content="I'm Done"
+							Style="{StaticResource MaterialDesignFlatButton}" />
+					</StackPanel>
+				</Grid>
+			</DataTemplate>
+		</ResourceDictionary>
+
+	</UserControl.Resources>
+
+	<Grid>
+		<materialDesign:DialogHost>
+			<DataGrid
+				AutoGenerateColumns="False"
+				CanUserSortColumns="False"
+				IsReadOnly="True"
+				ItemsSource="{Binding Data}">
+				<DataGrid.Columns>
+					<DataGridTextColumn
+						Width="Auto"
+						Binding="{Binding Parent.Name, Mode=OneTime}"
+						Header="Name" />
+					<DataGridTextColumn
+						Width="Auto"
+						Binding="{Binding Parent.Age, Mode=OneTime}"
+						Header="Age" />
+					<DataGridTextColumn
+						Width="Auto"
+						Binding="{Binding Children.Count}"
+						Header="#" />
+					<DataGridTextColumn
+						Width="150"
+						Binding="{Binding ChildrenNames.Value}"
+						Header="Children" />
+					<DataGridTemplateColumn>
+						<DataGridTemplateColumn.CellTemplate>
+							<DataTemplate DataType="{x:Type examples:ParentViewModel}">
+								<Button Command="{Binding EditCommand, Mode=OneTime}" ToolTip="Edit children">
+									<materialDesign:PackIcon
+										Width="14"
+										Height="14"
+										Kind="TableEdit" />
+								</Button>
+							</DataTemplate>
+						</DataGridTemplateColumn.CellTemplate>
+					</DataGridTemplateColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+		</materialDesign:DialogHost>
+	</Grid>
 </UserControl>
