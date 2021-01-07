@@ -24,7 +24,7 @@ namespace ObservableComputations.Samples.Infrastructure
                         "AggregationViewModel.cs",
                         @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/blob/master/DynamicData.Samplz/Examples/AggregationViewModel.cs",
                         "AggregationViewModel.cs",
-                        @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/blob/master/ObservableComputations.Samples/Examples/AggregationViewModel.cs"),
+                        @"https://github.com/IgorBuchelnikov/ObservableComputations.Samples/blob/master/ObservableComputations.Samples/ObservableComputations.Samples/Examples/AggregationViewModel.cs"),
 
                new SampleItem("Add and remove items", new  AddRemoveItemsViewModel(), 
                         "Items order in the result collections is the asceding order of time of the last add action",
