@@ -48,6 +48,9 @@
       <HintPath>..\packages\MaterialDesignThemes.2.2.1.750\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ObservableComputations, Version=2.0.0.0, Culture=neutral, PublicKeyToken=f929bfa2aaeea235, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObservableComputations.2.0.0\lib\net461\ObservableComputations.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -158,12 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\ObservableComputations\src\ObservableComputations\ObservableComputations.csproj">
-      <Project>{b2360531-7ce4-44ed-b80f-d13771545ac4}</Project>
-      <Name>ObservableComputations</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

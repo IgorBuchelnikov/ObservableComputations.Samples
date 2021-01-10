@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".other", ".other", "{0D2CD1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObservableComputations.Samples", "ObservableComputations.Samples\ObservableComputations.Samples.csproj", "{7668AE69-1902-4113-AD6C-363CB3B25A1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObservableComputations", "..\..\ObservableComputations\src\ObservableComputations\ObservableComputations.csproj", "{B2360531-7CE4-44ED-B80F-D13771545AC4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,14 +26,6 @@ Global
 		{7668AE69-1902-4113-AD6C-363CB3B25A1F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7668AE69-1902-4113-AD6C-363CB3B25A1F}.Release|x86.ActiveCfg = Release|Any CPU
 		{7668AE69-1902-4113-AD6C-363CB3B25A1F}.Release|x86.Build.0 = Release|Any CPU
-		{B2360531-7CE4-44ED-B80F-D13771545AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2360531-7CE4-44ED-B80F-D13771545AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2360531-7CE4-44ED-B80F-D13771545AC4}.Debug|x86.ActiveCfg = Debug|x86
-		{B2360531-7CE4-44ED-B80F-D13771545AC4}.Debug|x86.Build.0 = Debug|x86
-		{B2360531-7CE4-44ED-B80F-D13771545AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2360531-7CE4-44ED-B80F-D13771545AC4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2360531-7CE4-44ED-B80F-D13771545AC4}.Release|x86.ActiveCfg = Release|x86
-		{B2360531-7CE4-44ED-B80F-D13771545AC4}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
